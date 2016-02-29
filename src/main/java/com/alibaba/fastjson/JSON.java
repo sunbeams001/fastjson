@@ -59,7 +59,7 @@ import com.alibaba.fastjson.util.TypeUtils;
  */
 public abstract class JSON implements JSONStreamAware, JSONAware {
 
-    public static String DEFAULT_TYPE_KEY     = "@type";
+    public static String DEFAULT_TYPE_KEY     = "$type";
 
     public static int    DEFAULT_PARSER_FEATURE;
 

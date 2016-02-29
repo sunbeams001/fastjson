@@ -130,28 +130,28 @@ public class MapDeserializer implements ObjectDeserializer {
 
                 if (key == JSON.DEFAULT_TYPE_KEY && !parser.isEnabled(Feature.DisableSpecialKeyDetect)) {
                     String typeName = lexer.scanSymbol(parser.getSymbolTable(), '"');
-                    Class<?> clazz = TypeUtils.loadClass(typeName);
-
-                    if (Map.class.isAssignableFrom(clazz) ) {
+//                    Class<?> clazz = TypeUtils.loadClass(typeName);
+//
+//                    if (Map.class.isAssignableFrom(clazz) ) {
                         lexer.nextToken(JSONToken.COMMA);
                         if (lexer.token() == JSONToken.RBRACE) {
                             lexer.nextToken(JSONToken.COMMA);
                             return map;
                         }
                         continue;
-                    }
-
-                    ObjectDeserializer deserializer = parser.getConfig().getDeserializer(clazz);
-
-                    lexer.nextToken(JSONToken.COMMA);
-
-                    parser.setResolveStatus(DefaultJSONParser.TypeNameRedirect);
-
-                    if (context != null && !(fieldName instanceof Integer)) {
-                        parser.popContext();
-                    }
-
-                    return (Map) deserializer.deserialze(parser, clazz, fieldName);
+//                    }
+//
+//                    ObjectDeserializer deserializer = parser.getConfig().getDeserializer(clazz);
+//
+//                    lexer.nextToken(JSONToken.COMMA);
+//
+//                    parser.setResolveStatus(DefaultJSONParser.TypeNameRedirect);
+//
+//                    if (context != null && !(fieldName instanceof Integer)) {
+//                        parser.popContext();
+//                    }
+//
+//                    return (Map) deserializer.deserialze(parser, clazz, fieldName);
                 }
 
                 Object value;
